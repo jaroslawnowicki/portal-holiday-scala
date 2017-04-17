@@ -1,0 +1,10 @@
+@* login Template File *@
+@(userLoginForm: Form[UserLogin])
+@import helper._
+
+
+@helper.form(action = routes.User.auth()) {
+  @helper.inputText(userLoginForm("email"))
+  @helper.inputPassword(userLoginForm("password"))
+  <input type="submit" value="Zaloguj" />
+}

@@ -1,0 +1,14 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                           controllers.Application.index
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)
+GET 	/holidaycalendar				controllers.HolidayCalendar.index
+POST /holidaycalendar/:dateFrom		controllers.HolidayCalendar.add(dateFrom: String)
+GET /admin/index					controllers.admin.Index.index
+GET /login							controllers.User.login
+POST /login/auth					controllers.User.auth

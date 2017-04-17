@@ -1,0 +1,94 @@
+@* calendar Template File *@
+@main("Calendar") {
+	
+<link href='@routes.Assets.at("javascripts/fullcalendar/fullcalendar.css")' rel='stylesheet' />
+<link href="@routes.Assets.at("javascripts/fullcalendar/fullcalendar.print.css")" rel='stylesheet' media='print' />
+<script src="@routes.Assets.at("javascripts/fullcalendar/lib/moment.min.js")"></script>
+
+
+<script src="@routes.Assets.at("javascripts/fullcalendar/fullcalendar.min.js")"></script>
+
+<script>
+	$(document).ready(function() {
+
+		$('#calendar').fullCalendar({
+			header : {
+				left : 'prev,next today',
+				center : 'title',
+				right : 'month,agendaWeek,agendaDay'
+			},
+			defaultDate : '2014-06-12',
+			editable : true,
+			events : [ {
+				title : 'All Day Event',
+				start : '2014-06-01'
+			}, {
+				title : 'Long Event',
+				start : '2014-06-07',
+				end : '2014-06-10'
+			}, {
+				id : 999,
+				title : 'Repeating Event',
+				start : '2014-06-09T16:00:00'
+			}, {
+				id : 999,
+				title : 'Repeating Event',
+				start : '2014-06-16T16:00:00'
+			}, {
+				title : 'Meeting',
+				start : '2014-06-12T10:30:00',
+				end : '2014-06-12T12:30:00'
+			}, {
+				title : 'Lunch',
+				start : '2014-06-12T12:00:00'
+			}, {
+				title : 'Birthday Party',
+				start : '2014-06-13T07:00:00'
+			}, {
+				title : 'Click for Google',
+				url : 'http://google.com/',
+				start : '2014-06-28'
+			} ]
+		});
+
+	});
+</script>
+<div class="">
+<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Złoż wniosek
+</button>
+</div>
+	<div id="calendar"> 
+
+</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Złóż wniosek</h4>
+      </div>
+      <div class="modal-body">
+       	<div class="col-md-5">
+       		<label for="requestVacation">Wniosek urlopowy</label>
+       		<select id="requestVacation" class="form-control">
+       			<option value="1">1</option>
+       			<option value="2">2</option> 
+       		</select>
+       	</div>
+       	<div class="col-md-7">
+       		od : <input type="text" name="dateFrom" value="" id="dateFrom" />
+       		do : <input type="text" name="dateTo" value="" id="dateTo" />
+        	</div>
+       	<div class="clearfix"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="saveApplication">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>		
+}
+
